@@ -2,24 +2,186 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Video Site</title>
+  <!-- Video.js CSS -->
   <link href="https://vjs.zencdn.net/8.27.0/video-js.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* General */
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #0d0d0d;
+      color: #ffffff;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background-color: #111111;
+      border-bottom: 2px solid #1e90ff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1e90ff;
+    }
+
+    .search-bar input {
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: none;
+      width: 250px;
+      background-color: #222222;
+      color: #ffffff;
+    }
+
+    .search-bar input::placeholder {
+      color: #aaaaaa;
+    }
+
+    /* Featured Video */
+    .featured {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .featured h2 {
+      color: #1e90ff;
+      margin-bottom: 15px;
+    }
+
+    /* Video Grid */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .video-card {
+      background-color: #1a1a1a;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+
+    .video-card:hover {
+      transform: scale(1.03);
+    }
+
+    .video-card video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .video-title {
+      padding: 10px;
+      font-weight: 500;
+      color: #1e90ff;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #111111;
+      border-top: 2px solid #1e90ff;
+      margin-top: 30px;
+    }
+  </style>
 </head>
 <body>
-  <h1>My Free Video Hosting Site</h1>
 
-  <video
-    id="my-video"
-    class="video-js"
-    controls
-    preload="auto"
-    width="640"
-    height="360"
-    data-setup="{}"
-  >
-    <source src="https://res.cloudinary.com/djjisyt1h/video/upload/v1755639387/ImmortaL_Spiral_Intro_r4pk9l.mp4" type="video/mp4" />
-  </video>
+  <!-- Header -->
+  <header>
+    <div class="logo">MyVideoSite</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search videos...">
+    </div>
+  </header>
 
+  <!-- Featured Video -->
+  <section class="featured">
+    <h2>Featured Video</h2>
+    <video
+      id="featured-video"
+      class="video-js"
+      controls
+      preload="auto"
+      width="800"
+      height="450"
+      data-setup="{}"
+    >
+      <source src="https://res.cloudinary.com/YOUR_CLOUD_NAME/video/upload/v1234567890/sample.mp4" type="video/mp4" />
+    </video>
+  </section>
+
+  <!-- Video Gallery -->
+  <section class="video-grid">
+    <div class="video-card">
+      <video
+        class="video-js"
+        controls
+        preload="auto"
+        width="100%"
+        height="auto"
+        data-setup="{}"
+      >
+        <source src="https://res.cloudinary.com/YOUR_CLOUD_NAME/video/upload/v1234567890/sample.mp4" type="video/mp4" />
+      </video>
+      <div class="video-title">Sample Video 1</div>
+    </div>
+
+    <div class="video-card">
+      <video
+        class="video-js"
+        controls
+        preload="auto"
+        width="100%"
+        height="auto"
+        data-setup="{}"
+      >
+        <source src="https://res.cloudinary.com/YOUR_CLOUD_NAME/video/upload/v1234567890/sample2.mp4" type="video/mp4" />
+      </video>
+      <div class="video-title">Sample Video 2</div>
+    </div>
+
+    <div class="video-card">
+      <video
+        class="video-js"
+        controls
+        preload="auto"
+        width="100%"
+        height="auto"
+        data-setup="{}"
+      >
+        <source src="https://res.cloudinary.com/djjisyt1h/video/upload/v1755639387/ImmortaL_Spiral_Intro_r4pk9l.mp4" type="video/mp4" />
+      </video>
+      <div class="video-title">Sample Video 3</div>
+    </div>
+
+    <!-- Add more video cards here -->
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 MyVideoSite. All rights reserved.
+  </footer>
+
+  <!-- Video.js Script -->
   <script src="https://vjs.zencdn.net/8.27.0/video.min.js"></script>
 </body>
 </html>
